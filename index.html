@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xtios.vn | Premium Social Services</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  min-height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;
+  color:white;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+/* NỀN ÁNH SÁNG */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,215,0,.18),transparent 25%),
+    radial-gradient(circle at 80% 70%,rgba(255,120,0,.12),transparent 25%),
+    radial-gradient(circle at 50% 100%,rgba(255,0,180,.10),transparent 25%);
+  animation:bgMove 10s linear infinite alternate;
+}
+
+@keyframes bgMove{
+  from{transform:translate(-3%,-3%) rotate(0deg)}
+  to{transform:translate(3%,3%) rotate(5deg)}
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:15px 20px;
+  border-bottom:1px solid rgba(255,215,0,.25);
+  background:rgba(5,5,5,.78);
+  backdrop-filter:blur(18px);
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  background:linear-gradient(
+    90deg,
+    #fff,
+    #ffd700,
+    #ff8c00,
+    #fff,
+    #ffd700
+  );
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gold 4s linear infinite;
+}
+
+.logo span{
+  font-size:12px;
+  letter-spacing:3px;
+  display:block;
+  color:#d9b84c;
+  -webkit-text-fill-color:#d9b84c;
+}
+
+@keyframes gold{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
+
+.menu-btn{
+  border:1px solid rgba(255,215,0,.4);
+  background:linear-gradient(135deg,#191919,#332500);
+  color:#ffd700;
+  padding:10px 15px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* CONTAINER */
+.container{
+  width:min(1100px,92%);
+  margin:35px auto;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:50px 20px;
+  border:1px solid rgba(255,215,0,.25);
+  border-radius:28px;
+  background:
+    linear-gradient(135deg,
+      rgba(255,215,0,.10),
+      rgba(255,255,255,.025),
+      rgba(255,170,0,.08));
+  box-shadow:
+    0 0 50px rgba(255,190,0,.10),
+    inset 0 0 40px rgba(255,215,0,.03);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  left:-100px;
+  top:-150px;
+  border-radius:50%;
+  background:rgba(255,215,0,.12);
+  filter:blur(60px);
+}
+
+.hero h1{
+  font-size:clamp(35px,8vw,72px);
+  font-weight:1000;
+  letter-spacing:-3px;
+  background:linear-gradient(
+    90deg,
+    #fff,
+    #ffd700,
+    #ff9d00,
+    #fff,
+    #ffe45c,
+    #fff
+  );
+  background-size:400% auto;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gold 5s linear infinite;
+  text-shadow:0 0 35px rgba(255,215,0,.2);
+}
+
+.hero p{
+  color:#c8c8c8;
+  margin-top:12px;
+  font-size:15px;
+}
+
+.badges{
+  margin-top:22px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.badge{
+  padding:8px 13px;
+  border-radius:999px;
+  border:1px solid rgba(255,215,0,.28);
+  background:rgba(255,215,0,.07);
+  color:#ffe27a;
+  font-size:12px;
+}
+
+/* SERVICES */
+.section-title{
+  margin:35px 0 18px;
+  font-size:23px;
+  color:#ffd700;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  border-radius:22px;
+  border:1px solid rgba(255,215,0,.20);
+  background:linear-gradient(145deg,#111,#080808);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#ffd700;
+  box-shadow:0 15px 45px rgba(255,200,0,.13);
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-40px;
+  top:-40px;
+  background:rgba(255,215,0,.12);
+  border-radius:50%;
+  filter:blur(25px);
+}
+
+.icon{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  font-size:25px;
+  background:linear-gradient(135deg,#3c2b00,#151515);
+  border:1px solid rgba(255,215,0,.3);
+}
+
+.card h3{
+  margin-top:15px;
+  color:#fff;
+}
+
+.card p{
+  margin-top:8px;
+  color:#999;
+  line-height:1.5;
+  font-size:13px;
+}
+
+.card button{
+  width:100%;
+  margin-top:17px;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  cursor:pointer;
+  color:#090909;
+  font-weight:900;
+  background:linear-gradient(
+    90deg,
+    #ffd700,
+    #fff1a3,
+    #ffb300,
+    #ffd700
+  );
+  background-size:300% auto;
+  animation:gold 4s linear infinite;
+}
+
+/* IG FORM */
+.panel{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  border-radius:24px;
+  border:1px solid rgba(255,215,0,.3);
+  background:linear-gradient(145deg,#111,#080808);
+  box-shadow:0 0 50px rgba(255,215,0,.07);
+}
+
+.panel.active{
+  display:block;
+}
+
+.panel h2{
+  color:#ffd700;
+  margin-bottom:8px;
+}
+
+.panel p{
+  color:#999;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.input{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  border:1px solid #383838;
+  outline:none;
+  background:#050505;
+  color:white;
+  font-size:15px;
+}
+
+.input:focus{
+  border-color:#ffd700;
+  box-shadow:0 0 20px rgba(255,215,0,.1);
+}
+
+.create{
+  margin-top:12px;
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  cursor:pointer;
+  font-weight:900;
+  color:#080808;
+  background:linear-gradient(
+    90deg,
+    #ffd700,#fff3a5,#ff9800,#ffd700
+  );
+  background-size:300%;
+  animation:gold 3s linear infinite;
+}
+
+/* RESULT */
+.result{
+  display:none;
+  margin-top:18px;
+  padding:18px;
+  border-radius:17px;
+  border:1px solid rgba(0,255,170,.3);
+  background:rgba(0,255,170,.05);
+}
+
+.result.show{
+  display:block;
+}
+
+.result-title{
+  color:#62ffc7;
+  font-weight:bold;
+}
+
+.linkbox{
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  background:#050505;
+  border:1px solid #292929;
+  word-break:break-all;
+  color:#ffd700;
+  font-size:13px;
+}
+
+.copy{
+  margin-top:10px;
+  padding:10px 14px;
+  border:0;
+  border-radius:10px;
+  cursor:pointer;
+  background:#ffd700;
+  color:#000;
+  font-weight:bold;
+}
+
+/* PROFILE */
+.profile{
+  display:none;
+  min-height:calc(100vh - 80px);
+  padding:30px 15px;
+  place-items:center;
+}
+
+.profile.show{
+  display:grid;
+}
+
+.profile-card{
+  width:min(480px,100%);
+  position:relative;
+  overflow:hidden;
+  padding:35px 22px;
+  text-align:center;
+  border-radius:30px;
+  border:1px solid rgba(255,215,0,.35);
+  background:rgba(8,8,8,.88);
+  backdrop-filter:blur(20px);
+  box-shadow:
+    0 0 60px rgba(255,215,0,.13),
+    0 20px 80px rgba(0,0,0,.5);
+}
+
+.rainbow{
+  position:absolute;
+  inset:-2px;
+  z-index:-1;
+  background:conic-gradient(
+    #ff0000,
+    #ff9900,
+    #ffff00,
+    #00ff88,
+    #00c8ff,
+    #6c00ff,
+    #ff00c8,
+    #ff0000
+  );
+  animation:spin 6s linear infinite;
+  filter:blur(5px);
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.avatar{
+  width:95px;
+  height:95px;
+  margin:auto;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  font-size:38px;
+  background:linear-gradient(135deg,#ffd700,#fff1a8,#b97900);
+  color:#111;
+  box-shadow:
+    0 0 25px rgba(255,215,0,.6),
+    0 0 60px rgba(255,215,0,.15);
+}
+
+.profile h2{
+  margin-top:18px;
+  font-size:25px;
+  background:linear-gradient(
+    90deg,#fff,#ffd700,#ff66d9,#00eaff,#fff
+  );
+  background-size:300%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gold 4s linear infinite;
+}
+
+.profile .sub{
+  margin-top:8px;
+  color:#aaa;
+}
+
+.social-btn{
+  display:block;
+  margin-top:22px;
+  padding:15px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#090909;
+  font-weight:900;
+  background:linear-gradient(
+    90deg,
+    #ffd700,
+    #fff,
+    #ffb000,
+    #ffd700
+  );
+  background-size:300%;
+  animation:gold 3s linear infinite;
+}
+
+.back{
+  display:block;
+  margin-top:12px;
+  color:#aaa;
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#666;
+  font-size:12px;
+}
+
+footer strong{
+  color:#ffd700;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:38px 15px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+}
+
+@media(max-width:500px){
+  .container{
+    width:94%;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .card{
+    padding:19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header id="mainHeader">
+  <div class="nav">
+    <div class="logo">
+      ✦ XTIOS.VN
+      <span>PREMIUM SOCIAL SERVICES</span>
+    </div>
+
+    <button class="menu-btn" onclick="scrollServices()">
+      DỊCH VỤ
+    </button>
+  </div>
+</header>
+
+<main id="home">
+
+<div class="container">
+
+  <section class="hero">
+    <h1>XTIOS.VN</h1>
+
+    <p>
+      Premium Social Services • Giao diện vàng óng ánh • 7 màu chuyển động
+    </p>
+
+    <div class="badges">
+      <div class="badge">✦ PREMIUM</div>
+      <div class="badge">⚡ NHANH CHÓNG</div>
+      <div class="badge">🔐 AN TOÀN</div>
+      <div class="badge">🌈 7 COLOR</div>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="services">
+    ✦ Dịch vụ MXH
+  </h2>
+
+  <section class="services">
+
+    <div class="card">
+      <div class="icon">◎</div>
+      <h3>Tạo Profile IG</h3>
+      <p>
+        Tạo trang profile Instagram trung gian với giao diện
+        premium vàng + 7 màu óng ánh.
+      </p>
+      <button onclick="openIG()">
+        TẠO PROFILE NGAY
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">✦</div>
+      <h3>Profile Premium</h3>
+      <p>
+        Trang giới thiệu cá nhân với hiệu ứng ánh sáng
+        và thiết kế premium.
+      </p>
+      <button onclick="alert('Tính năng đang phát triển')">
+        XEM DỊCH VỤ
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="icon">♛</div>
+      <h3>Social Services</h3>
+      <p>
+        Khu vực tổng hợp các dịch vụ mạng xã hội của XTIOS.VN.
+      </p>
+      <button onclick="alert('Các dịch vụ khác đang được cập nhật')">
+        KHÁM PHÁ
+      </button>
+    </div>
+
+  </section>
+
+  <!-- FORM IG -->
+  <section class="panel" id="igPanel">
+
+    <h2>◎ Tạo Profile Instagram</h2>
+
+    <p>
+      Nhập username hoặc đường dẫn Instagram của bạn.
+    </p>
+
+    <input
+      id="igInput"
+      class="input"
+      type="text"
+      placeholder="@username hoặc https://instagram.com/username"
+      autocomplete="off"
+    >
+
+    <button class="create" onclick="createProfile()">
+      ✦ TẠO LINK PROFILE PREMIUM
+    </button>
+
+    <div class="result" id="result">
+
+      <div class="result-title">
+        ✓ Tạo Profile thành công
+      </div>
+
+      <div class="linkbox" id="generatedLink"></div>
+
+      <button class="copy" onclick="copyLink()">
+        SAO CHÉP LINK
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  © 2026 <strong>XTIOS.VN</strong> — Premium Social Services
+</footer>
+
+</main>
+
+
+<!-- PROFILE PAGE -->
+<section class="profile" id="profilePage">
+
+  <div class="profile-card">
+
+    <div class="rainbow"></div>
+
+    <div class="avatar">
+      ✦
+    </div>
+
+    <h2 id="profileName">
+      Instagram Profile
+    </h2>
+
+    <div class="sub">
+      ✦ XTIOS Premium Profile ✦
+    </div>
+
+    <a
+      id="instagramButton"
+      class="social-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ◎ MỞ INSTAGRAM
+    </a>
+
+    <div class="back" onclick="backHome()">
+      ← Quay lại XTIOS.VN
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+/* SCROLL */
+function scrollServices(){
+  document.getElementById("services")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+/* OPEN FORM */
+function openIG(){
+
+  const panel = document.getElementById("igPanel");
+
+  panel.classList.add("active");
+
+  setTimeout(()=>{
+    panel.scrollIntoView({behavior:"smooth"});
+  },100);
+}
+
+/* LẤY LINK INSTAGRAM */
+function normalizeInstagram(value){
+
+  value = value.trim();
+
+  if(!value){
+    return null;
+  }
+
+  /* Nếu nhập @username */
+  if(value.startsWith("@")){
+    value = value.substring(1);
+  }
+
+  /* Nếu nhập URL */
+  if(value.includes("instagram.com")){
+
+    try{
+
+      const url = new URL(
+        value.startsWith("http")
+        ? value
+        : "https://" + value
+      );
+
+      const parts =
+        url.pathname.split("/").filter(Boolean);
+
+      if(!parts.length){
+        return null;
+      }
+
+      return {
+        username: parts[0],
+        url: "https://instagram.com/" + parts[0]
+      };
+
+    }catch(e){
+      return null;
+    }
+  }
+
+  /* username thường */
+  value = value.replace(/\s/g,"");
+
+  if(!/^[a-zA-Z0-9._]+$/.test(value)){
+    return null;
+  }
+
+  return {
+    username:value,
+    url:"https://instagram.com/" + value
+  };
+}
+
+
+/* TẠO PROFILE */
+function createProfile(){
+
+  const input =
+    document.getElementById("igInput").value;
+
+  const data =
+    normalizeInstagram(input);
+
+  if(!data){
+
+    alert(
+      "Vui lòng nhập username hoặc link Instagram hợp lệ."
+    );
+
+    return;
+  }
+
+  /*
+    Tạo dữ liệu profile bằng Base64.
+    Không cần server cho bản demo.
+  */
+
+  const encoded =
+    btoa(
+      unescape(
+        encodeURIComponent(
+          JSON.stringify(data)
+        )
+      )
+    );
+
+  const newLink =
+    window.location.href.split("#")[0]
+    + "#profile="
+    + encoded;
+
+  document.getElementById("generatedLink")
+    .textContent = newLink;
+
+  document.getElementById("result")
+    .classList.add("show");
+
+  window.generatedProfileLink = newLink;
+}
+
+
+/* COPY */
+function copyLink(){
+
+  if(!window.generatedProfileLink){
+    return;
+  }
+
+  navigator.clipboard.writeText(
+    window.generatedProfileLink
+  ).then(()=>{
+
+    alert("✓ Đã sao chép link profile!");
+
+  }).catch(()=>{
+
+    prompt(
+      "Sao chép link bên dưới:",
+      window.generatedProfileLink
+    );
+
+  });
+}
+
+
+/* HIỂN THỊ PROFILE */
+function loadProfile(){
+
+  const hash = window.location.hash;
+
+  if(!hash.startsWith("#profile=")){
+    return;
+  }
+
+  const encoded =
+    hash.substring("#profile=".length);
+
+  try{
+
+    const data =
+      JSON.parse(
+        decodeURIComponent(
+          escape(
+            atob(encoded)
+          )
+        )
+      );
+
+    if(!data.username || !data.url){
+      throw new Error();
+    }
+
+    document.getElementById("home")
+      .style.display="none";
+
+    document.getElementById("mainHeader")
+      .style.display="none";
+
+    document.getElementById("profilePage")
+      .classList.add("show");
+
+    document.getElementById("profileName")
+      .textContent = "@" + data.username;
+
+    document.getElementById("instagramButton")
+      .href = data.url;
+
+  }catch(e){
+
+    alert("Link profile không hợp lệ.");
+
+    history.replaceState(
+      null,
+      "",
+      window.location.pathname
+    );
+  }
+}
+
+
+/* QUAY LẠI */
+function backHome(){
+
+  history.pushState(
+    null,
+    "",
+    window.location.pathname
+  );
+
+  location.reload();
+}
+
+
+/* LOAD */
+window.addEventListener(
+  "DOMContentLoaded",
+  loadProfile
+);
+
+</script>
+
+</body>
+</html>
